@@ -57,15 +57,20 @@ public class Circuito {
     private void podio() {
         System.out.println("PODIO: \n");
 
-        for (int j = 0,k=1; j < podio.size();) {
-            for (int i = 0 ; i < podio.size(); i++) {
-                if(podio.get(i).posicion==k){
-                    System.out.println("Posicion:" + (k) + ": " + podio.get(i).nombre );
-                    k++;
-                    podio.remove(podio.get(i));
-                }
-            }
+//        for (int j = 0,k=1; j < podio.size();) {
+//            for (int i = 0 ; i < podio.size(); i++) {
+//                if(podio.get(i).posicion==k){
+//                    System.out.println("Posicion:" + (k) + ": " + podio.get(i).nombre );
+//                    k++;
+//                    podio.remove(podio.get(i));
+//                }
+//            }
+//
+//        }
 
+        for (Coche coche :
+                podio) {
+            System.out.println("Posición " + coche.posicion + ": " + coche.nombre + ".");
         }
 
     }
