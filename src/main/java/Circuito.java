@@ -15,7 +15,7 @@ public class Circuito{
 
 
     public void comenzarCarrera(){
-        System.out.println("Pistoletazo de salida");
+        System.out.println("Pistoletazo de salida.");
 
         for (Coche coche:coches) coche.setTiempoCompletarCircuito(longitudKm / coche.getVelocidadKmH()) ;
 
