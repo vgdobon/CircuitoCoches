@@ -17,29 +17,36 @@ public class Circuito {
     public void comenzarCarrera(){
         System.out.println("Pistoletazo de salida");
 
-        for (Coche coche:coches) {
-            coche.tiempoCompletarCircuito=longitudKm/coche.velocidadKmH;
-        }
+        for (Coche coche:coches) coche.setTiempoCompletarCircuito(longitudKm / coche.getVelocidadKmH()) ;
 
         for (Coche coche: coches
              ) {
             coche.start();
         }
 
-
+        long contadorVueltas=0;
+        long contadorIsAlive=0;
         for (int j = 0,k=1; j < coches.size();) {
 
             for (int i = 0; i < coches.size();i++) {
                 if(!coches.get(i).isAlive()){
-                    coches.get(i).posicion=k;
-                    System.out.println("Posicion:" + (k) + ": " + coches.get(i).nombre );
+                    coches.get(i).setPosicion(k);
+                    System.out.println("Posicion " + (k) + ": " + coches.get(i).getNombre() );
                     k++;
                     podio.add(coches.get(i));
                     coches.remove(coches.get(i));
+                    System.out.println(contadorIsAlive);
+                    System.out.println(contadorVueltas);
 
                 }
+                contadorIsAlive++;
+
             }
+            contadorVueltas++;
         }
+
+        System.out.println(contadorVueltas+" vueltas del bucle.");
+        System.out.println(contadorIsAlive + " vueltas al bucle isAlive()");
 
         podio();
 
@@ -70,7 +77,7 @@ public class Circuito {
 
         for (Coche coche :
                 podio) {
-            System.out.println("Posición " + coche.posicion + ": " + coche.nombre + ".");
+            System.out.println("Posición " + coche.getPosicion() + ": " + coche.getNombre() + ".");
         }
 
     }

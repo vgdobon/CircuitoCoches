@@ -1,9 +1,10 @@
 public class Coche extends Thread {
 
-    int velocidadKmH;
-    String nombre;
-    float tiempoCompletarCircuito;
-    int posicion;
+
+    private int velocidadKmH;
+    private String nombre;
+    private float tiempoCompletarCircuito;
+    private int posicion;
 
     public Coche(int velocidad,String nombre) {
         this.velocidadKmH = velocidad;
@@ -13,7 +14,7 @@ public class Coche extends Thread {
 
     @Override
     public void run() {
-        System.out.println("Soy " + nombre + " y empiezo la carrera");
+        System.out.println("El "+ nombre + " ha hecho una buena salida.Comienza su carrera.");
 
         try {
 
@@ -23,9 +24,40 @@ public class Coche extends Thread {
             e.printStackTrace();
         }
 
-
-        System.out.println("Soy " + nombre + " y he terminado la carrera");
+        System.out.println("El " + nombre + " cruzado la meta.");
     }
 
+
+    public int getVelocidadKmH() {
+        return velocidadKmH;
+    }
+
+    public void setVelocidadKmH(int velocidadKmH) {
+        this.velocidadKmH = velocidadKmH;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public float getTiempoCompletarCircuito() {
+        return tiempoCompletarCircuito;
+    }
+
+    public void setTiempoCompletarCircuito(float tiempoCompletarCircuito) {
+        this.tiempoCompletarCircuito = tiempoCompletarCircuito;
+    }
+
+    public int getPosicion() {
+        return posicion;
+    }
+
+    public void setPosicion(int posicion) {
+        this.posicion = posicion;
+    }
 
 }
