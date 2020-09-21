@@ -5,11 +5,13 @@ public class Circuito{
     List<Coche> coches = new ArrayList<Coche>();
     float longitudKm;
     List<Coche> podio = new ArrayList<Coche>();
+    long nVueltas;
 
 
-    public Circuito(int longitudKm) {
+    public Circuito(int longitudKm,int vueltas) {
 
         this.longitudKm = longitudKm;
+        this.nVueltas = vueltas;
     }
 
 
@@ -45,13 +47,10 @@ public class Circuito{
                     System.out.println("Posicion " + (k) + ": " + coches.get(i).getNombre() );
                     System.out.println("Número de accidentes: " + coches.get(i).getnAccidentes());
                     k++;
+                    System.out.println("Tiempo por vuelta: " + ((coches.get(i).getTiempoTotal())/ nVueltas)/1000f + " segundos.");
+                    System.out.println("Tiempo total : " + (coches.get(i).getTiempoTotal()/1000f + " segundos\n"));
                     podio.add(coches.get(i));
                     coches.remove(coches.get(i));
-
-                    System.out.println("Tiempo por vuelta: " + contadorVueltas);
-                    System.out.println("Tiempo total: " + contadorIsAlive + "\n");
-
-
                 }
                 contadorIsAlive++;
 
@@ -59,6 +58,7 @@ public class Circuito{
             contadorVueltas++;
         }
 
+        System.out.println();
         System.out.println(contadorVueltas+" vueltas del bucle.");
         System.out.println(contadorIsAlive + " vueltas al bucle isAlive()\n");
 

@@ -9,6 +9,7 @@ public class Coche extends Thread {
     private int posicion;
     private int probabilidadChoque;
     private int nAccidentes;
+    private long tiempoTotal;
 
     public Coche(int velocidad,String nombre) {
         this.velocidadKmH = velocidad;
@@ -18,6 +19,7 @@ public class Coche extends Thread {
 
     @Override
     public void run() {
+        long tiempoInicial = System.currentTimeMillis();
         System.out.println("El "+ nombre + " ha hecho una buena salida.Comienza su carrera.");
 
         //Numero aleatorio del 1 al 100
@@ -31,6 +33,8 @@ public class Coche extends Thread {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+        long tiempoFinal = System.currentTimeMillis();
+        tiempoTotal = tiempoFinal - tiempoInicial;
 
         System.out.println("El " + nombre + " ha cruzado la meta.");
     }
@@ -96,5 +100,7 @@ public class Coche extends Thread {
         return nAccidentes;
     }
 
-
+    public long getTiempoTotal() {
+        return tiempoTotal;
+    }
 }
